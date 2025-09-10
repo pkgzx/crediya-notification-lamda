@@ -18,7 +18,6 @@ export const handler: SQSHandler = async (event: SQSEvent) => {
         new Applicant(data.applicantName ?? "", data.applicantEmail),
         Number(data.amount),
         data.status,
-        data.reason,
         new Date(data.updatedAt)
       )
     );

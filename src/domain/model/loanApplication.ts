@@ -11,7 +11,6 @@ export class LoanApplication {
         public applicant: Applicant,
         public amount: number,
         public status:  LoanStatus,
-        public reason?: string,
         public updatedAt?: Date,
     ) {}
 }

@@ -20,7 +20,6 @@ export class EmailServiceSNS implements ISendMessagePort {
       `\n\nApplicant: ${loan.loanApplication.applicant.name}` +
       `\nEmail: ${loan.loanApplication.applicant.email}` +
       `\nStatus: ${loan.loanApplication.status}` +
-      `\nReason: ${loan.loanApplication.reason || "N/A"}` +
       `\nUpdated at: ${loan.loanApplication.updatedAt?.toLocaleString()}` +
       `\n\nThis is an automated message from CrediYa.`;
 
