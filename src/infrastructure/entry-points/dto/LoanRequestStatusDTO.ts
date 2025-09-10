@@ -6,7 +6,6 @@ export interface LoanRequestStatusDTO {
   status: LoanStatus;
   amount: number;
   updatedAt: string;
-  reason?: string;
   applicantName?: string;
   applicantId?: string;
 }
