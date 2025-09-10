@@ -1,0 +1,1 @@
+export { handler } from './infrastructure/entry-points/handler/sqsLoanApplication';
