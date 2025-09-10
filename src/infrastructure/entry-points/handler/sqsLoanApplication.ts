@@ -10,9 +10,10 @@ export const handler: SQSHandler = async (event: SQSEvent) => {
   const emailService = new EmailServiceSNS();
   const notifyLoanStatusUseCase = new NotifyLoanStatusUseCase(emailService);
 
+  console.log("Received SQS event*************:", JSON.stringify(event, null, 2));
+
   for (const record of event.Records) {
     const data: LoanRequestStatusDTO = JSON.parse(record.body);
-    console.log("++++++++++++++++record+++++++++++++++", data);
     const loanRequest = new LoanRequestStatusChangedEvent(
       new LoanApplication(
         data.requestId,
