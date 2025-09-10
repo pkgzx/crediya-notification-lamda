@@ -12,6 +12,7 @@ export const handler: SQSHandler = async (event: SQSEvent) => {
 
   for (const record of event.Records) {
     const data: LoanRequestStatusDTO = JSON.parse(record.body);
+    console.log("++++++++++++++++record+++++++++++++++", data);
     const loanRequest = new LoanRequestStatusChangedEvent(
       new LoanApplication(
         data.requestId,
