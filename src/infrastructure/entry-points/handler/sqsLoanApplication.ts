@@ -10,13 +10,14 @@ export const handler: SQSHandler = async (event: SQSEvent) => {
   const emailService = new EmailServiceSNS();
   const notifyLoanStatusUseCase = new NotifyLoanStatusUseCase(emailService);
 
-
   for (const record of event.Records) {
     const data: LoanRequestStatusDTO = JSON.parse(record.body);
-      const updatedAt =
+    console.log("Processing SQS record------------------------:", data);
+    const updatedAt =
       typeof data.updatedAt === "number"
         ? new Date(data.updatedAt)
-        : new Date(Number(data.updatedAt)); 
+        : new Date(Number(data.updatedAt));
+    console.log("-------Parsed updatedAt:", updatedAt);
     const loanRequest = new LoanRequestStatusChangedEvent(
       new LoanApplication(
         data.requestId,
